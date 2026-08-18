@@ -47,11 +47,12 @@ public class Product {
         this.category = category;
     }
 
-    public void update(String name, String description, String sku, BigDecimal price, int minimumStock, Category category ) {
+    public void update(String name, String description, String sku, BigDecimal price,int quantity, int minimumStock, Category category ) {
         this.name = name;
         this.description = description;
         this.sku = sku;
         this.price = price;
+        this.quantity = quantity;
         this.minimumStock = minimumStock;
         this.category = category;
     }
