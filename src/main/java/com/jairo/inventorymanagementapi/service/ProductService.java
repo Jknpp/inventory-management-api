@@ -81,6 +81,20 @@ public class ProductService {
         productRepository.delete(findProductById(id));
     }
 
+    public List<ProductResponse> findByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name)
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+    public List<ProductResponse> findLowStockProducts() {
+        return productRepository.findLowStockProducts()
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
     private Product findProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
